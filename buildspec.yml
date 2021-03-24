@@ -7,7 +7,7 @@ phases:
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region ap-south-1  --no-include-email)
-      - REPOSITORY_URI=844583223092.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom
+      - REPOSITORY_URI=accid.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom
       - IMAGE_TAG=latest
   build:
     commands:
