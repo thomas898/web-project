@@ -1,6 +1,6 @@
 def dev = [:]
 dev.name = 'ubuntu'
-dev.host = '13.127.117.100'
+dev.host = '13.232.241.31'
 dev.allowAnyHosts = true
 pipeline {
     agent any
