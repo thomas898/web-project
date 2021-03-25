@@ -37,7 +37,7 @@ pipeline {
             withCredentials([sshUserPrivateKey(credentialsId: 'nginx-deployment', keyFileVariable: 'tldev', passphraseVariable: '', usernameVariable: 'ubuntu')]) {
             dev.user = ubuntu
             dev.identityFile = tldev
-                writeFile file: 'devupdate.sh', text: '#!/bin/bash \n \n set -e \n sudo su \n cd /home/ubuntu/ \n eval $(aws ecr get-login --no-include-email --region ap-south-1) \n docker stop nginx \n docker rm $(docker ps -aq) \n docker pull  844583223092.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom \ndocker run --name nginx -d -p 80:80 844583223092.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom'
+                writeFile file: 'devupdate.sh', text: '#!/bin/bash \n \n set -e \n sudo su \n  echo ${REPOSITORY_URI} > /tmp/thomas.txt \n cd /home/ubuntu/ \n eval $(aws ecr get-login --no-include-email --region ap-south-1) \n docker stop nginx \n docker rm $(docker ps -aq) \n docker pull  844583223092.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom \ndocker run --name nginx -d -p 80:80 844583223092.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom'
                  sshScript remote: dev, script: "devupdate.sh"
               }
           }
