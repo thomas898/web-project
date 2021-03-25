@@ -1,11 +1,11 @@
 def dev = [:]
 dev.name = 'ubuntu'
-dev.host = '65.1.253.61'
+dev.host = '13.127.117.100'
 dev.allowAnyHosts = true
 pipeline {
     agent any
     environment{
-       REPOSITORY_URI="accountid.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom"
+       REPOSITORY_URI="844583223092.dkr.ecr.ap-south-1.amazonaws.com/nginx-custom"
 }
    
     stages {
